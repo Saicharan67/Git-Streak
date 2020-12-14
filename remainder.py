@@ -13,7 +13,11 @@ def SendMail():
     s = smtplib.SMTP("smtp.gmail.com", 587)
     s.starttls()
     s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
-    message = "Your GitHub streak is about to break. Go and make a commit quick!"
+    message = """
+    Subject: GitHUb Streak Remainder
+    
+    Your GitHub streak is about to break. Go and make a commit quick!
+    """
     s.sendmail("gachibowlydiwalkar@gmail.com", "mahankalisaicharan@gmail.com", message)
 
     print("sent")
@@ -24,13 +28,13 @@ def EmailStreak():
     Date = date.today()
     Todays_Date = str(Date.year) + "-" + str(Date.month) + "-" + str(Date.day)
     Todays_Streak = soup.find_all("rect", attrs={"data-date": Todays_Date})
-    if Todays_Streak != 0:
+    if Todays_Streak == 0:
         SendMail()
     # print(Todays_Streak[0]["data-count"])
 
 
-schedule.every().day.at("19:22").do(EmailStreak)
+schedule.every().day.at("19:30").do(EmailStreak)
 while True:
     schedule.run_pending()
-# EmailStreak()
+
 #!/usr/bin/python
