@@ -28,13 +28,14 @@ def EmailStreak():
     Date = date.today()
     Todays_Date = str(Date.year) + "-" + str(Date.month) + "-" + str(Date.day)
     Todays_Streak = soup.find_all("rect", attrs={"data-date": Todays_Date})
-    if Todays_Streak == 0:
+    if Todays_Streak != 0:
         SendMail()
-    # print(Todays_Streak[0]["data-count"])
+    print(Todays_Streak[0]["data-count"])
 
 
-schedule.every().day.at("19:30").do(EmailStreak)
-while True:
-    schedule.run_pending()
+EmailStreak()
+# schedule.every().day.at("19:30").do(EmailStreak)
+# while True:
+#     schedule.run_pending()
 
 #!/usr/bin/python
