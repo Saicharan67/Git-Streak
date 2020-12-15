@@ -3,7 +3,7 @@ from datetime import datetime as date
 import schedule
 import requests
 import smtplib
-import time
+
 
 page = requests.get("https://github.com/Saicharan67")
 soup = BeautifulSoup(page.content, "html.parser")
@@ -33,10 +33,9 @@ def EmailStreak():
     print(Todays_Streak[0]["data-count"])
 
 
-schedule.every().day.at("19:45").do(EmailStreak)
+schedule.every().day.at("19:50").do(EmailStreak)
 while True:
     schedule.run_pending()
-    time.sleep(1)
 
 
 #!/usr/bin/python
