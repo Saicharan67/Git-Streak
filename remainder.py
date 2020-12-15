@@ -33,9 +33,9 @@ def EmailStreak():
     print(Todays_Streak[0]["data-count"])
 
 
-schedule.every().day.at("19:50").do(EmailStreak)
-while True:
-    schedule.run_pending()
+# schedule.every().day.at("19:55").do(EmailStreak)
+# while True:
+#     schedule.run_pending()
 
-
+EmailStreak()
 #!/usr/bin/python
