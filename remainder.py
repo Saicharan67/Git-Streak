@@ -3,6 +3,7 @@ from datetime import datetime as date
 import schedule
 import requests
 import smtplib
+import time
 
 page = requests.get("https://github.com/Saicharan67")
 soup = BeautifulSoup(page.content, "html.parser")
@@ -14,7 +15,6 @@ def SendMail():
     s.starttls()
     s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
     message = """
-    Subject: GitHUb Streak Remainder
     
     Your GitHub streak is about to break. Go and make a commit quick!
     """
@@ -33,9 +33,10 @@ def EmailStreak():
     print(Todays_Streak[0]["data-count"])
 
 
-EmailStreak()
-# schedule.every().day.at("19:30").do(EmailStreak)
-# while True:
-#     schedule.run_pending()
+schedule.every().day.at("19:45").do(EmailStreak)
+while True:
+    schedule.run_pending()
+    time.sleep(1)
+
 
 #!/usr/bin/python
