@@ -33,7 +33,7 @@ def EmailStreak():
     print(Todays_Streak[0]["data-count"])
 
 
-schedule.every().day.at("20:00").do(EmailStreak)
+schedule.every().day.at("22:00").do(EmailStreak)
 while True:
     schedule.run_pending()
 
