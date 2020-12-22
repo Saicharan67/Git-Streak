@@ -16,7 +16,7 @@ def SendMail(count):
     s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
     if count:
         message = """
-         You Have Made {} COntributions Today...!
+         You Have Made {} Contributions Today...!
 
         """.format(
             count
@@ -43,7 +43,7 @@ def EmailStreak():
     print(count)
 
 
-schedule.every().day.at("18:10").do(EmailStreak)
+schedule.every().day.at("14:30").do(EmailStreak)
 while True:
     schedule.run_pending()
 
