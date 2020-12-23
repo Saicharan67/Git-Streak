@@ -14,7 +14,7 @@ def SendMail(count):
     s = smtplib.SMTP("smtp.gmail.com", 587)
     s.starttls()
     s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
-    if count:
+    if int(count):
         message = """
          You Have Made {} Contributions Today...!
 
@@ -43,7 +43,7 @@ def EmailStreak():
     print(count)
 
 
-schedule.every().day.at("14:30").do(EmailStreak)
+schedule.every().day.at("15:00").do(EmailStreak)
 while True:
     schedule.run_pending()
 
