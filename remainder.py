@@ -16,7 +16,7 @@ def SendMail(count):
     s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
     if count:
         message = """
-         You Have Made {} COntributions Today...!
+         You Have Made {} Cnntributions Today...!
 
         """.format(
             count
