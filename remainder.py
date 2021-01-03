@@ -1,10 +1,9 @@
 from bs4 import BeautifulSoup
-from datetime import datetime as date
 import schedule
 import requests
 import smtplib
 from email.message import EmailMessage
-
+import arrow
 
 page = requests.get("https://github.com/Saicharan67")
 soup = BeautifulSoup(page.content, "html.parser")
@@ -41,8 +40,8 @@ def SendMail(count):
 
 
 def EmailStreak():
-    Date = date.today()
-    Todays_Date = str(Date.year) + "-" + str(Date.month) + "-" + str(Date.day)
+   
+    Todays_Date = arrow.now().format('YYYY-MM-DD')
     Todays_Streak = soup.find_all("rect", attrs={"data-date": Todays_Date})
     count = Todays_Streak[0]["data-count"]
 
@@ -50,7 +49,7 @@ def EmailStreak():
     print(count)
 
 
-schedule.every().day.at("15:00").do(EmailStreak)
+schedule.every().day.at("15:30").do(EmailStreak)
 while True:
     schedule.run_pending()
 
