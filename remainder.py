@@ -46,7 +46,7 @@ def EmailStreak():
     count = Todays_Streak[0]["data-count"]
 
     SendMail(count)
-    print(count,Todays_Date,Todays_Streak)
+    print(count,Todays_Streak)
 
 
 schedule.every().day.at("15:30").do(EmailStreak)
