@@ -13,7 +13,7 @@ def SendMail(count):
     msg = EmailMessage()
     s = smtplib.SMTP("smtp.gmail.com", 587)
     s.starttls()
-    s.login("gachibowlydiwalkar@gmail.com", "gachibowly@02")
+    s.login("Sendingemail@gmail.com", "YourPassword")
     if count != "0":
         msg["Subject"] = "Well Done You Are Maintaining Your Git Streak..!"
 
@@ -32,7 +32,7 @@ def SendMail(count):
         """
         msg.set_content(text)
     s.sendmail(
-        "gachibowlydiwalkar@gmail.com", "mahankalisaicharan@gmail.com", msg.as_string()
+        "Sendingemail@gmail.com", "receivingemail@gmail.com", msg.as_string()
     )
 
     print("sent")
